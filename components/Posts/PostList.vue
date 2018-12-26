@@ -1,32 +1,19 @@
+
 <template>
-  <section class="featured-posts">
-    <PostPreview
-      id="1"
-      :is-admin="isAdmin"
-      thumbnail="https://picsum.photos/200/300"
-      title="Hello there 1!"
-      preview-text="This is my first post"
-    />
-    <PostPreview
-      id="2"
-      :is-admin="isAdmin"
-      thumbnail="https://picsum.photos/200/300"
-      title="Hello there 2!"
-      preview-text="This is my second post"
-    />
-    <PostPreview
-      id="3"
-      :is-admin="isAdmin"
-      thumbnail="https://picsum.photos/200/300"
-      title="Hello there 3!"
-      preview-text="This is my third post"
-    />
-  </section>  
+  <section class="post-list">
+    <PostPreview 
+      v-for="post in posts" 
+      :key="post.id" 
+      :id="post.id" 
+      :is-admin="isAdmin" 
+      :thumbnail="post.thumbnail" 
+      :title="post.title"
+      :preview-text="post.previewText" />
+  </section>
 </template>
 
 <script>
-import PostPreview from '@/components/Posts/PostPreview'
-
+import PostPreview from '@/components/Posts/PostPreview.vue'
 export default {
   components: {
     PostPreview
@@ -35,19 +22,17 @@ export default {
     isAdmin: {
       type: Boolean,
       default: false
+    },
+    posts: {
+      type: Array,
+      required: true
     }
   }
 }
 </script>
 
-<style scope>
-.posts-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.posts-list {
+<style scoped>
+.post-list {
   display: flex;
   padding: 20px;
   box-sizing: border-box;

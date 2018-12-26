@@ -1,37 +1,38 @@
 <template>
   <div class="home-page">
     <section class="intro">
-      <h1>Get the latest tech news!</h1>
+      <h1>Get the lastes tech news!</h1>
     </section>
-    <section class="featured-posts">
-      <PostPreview
-        id="1"
-        thumbnail="https://picsum.photos/200/300"
-        title="Hello there 1!"
-        preview-text="This is my first post"
-      />
-      <PostPreview
-        id="1"
-        thumbnail="https://picsum.photos/200/300"
-        title="Hello there 2!"
-        preview-text="This is my second post"
-      />
-      <PostPreview
-        id="1"
-        thumbnail="https://picsum.photos/200/300"
-        title="Hello there 3!"
-        preview-text="This is my third post"
-      />
-    </section>
+    <post-list :posts="loadedPosts"/>
   </div>
 </template>
 
 <script>
-import PostPreview from '@/components/Posts/PostPreview'
+import PostList from '@/components/Posts/PostList'
 
 export default {
   components: {
-    PostPreview
+    PostList
+  },
+  data() {
+    return {
+      loadedPosts: [
+        {
+          id: '1',
+          title: 'First Post',
+          previewText: 'This is our first post!',
+          thumbnail:
+            'https://www.articlesplanet.info/wp-content/uploads/2018/05/Tech-sector.jpg'
+        },
+        {
+          id: '2',
+          title: 'Second Post',
+          previewText: 'This is our second post!',
+          thumbnail:
+            'https://www.articlesplanet.info/wp-content/uploads/2018/05/Tech-sector.jpg'
+        }
+      ]
+    }
   }
 }
 </script>

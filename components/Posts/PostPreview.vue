@@ -20,7 +20,7 @@ export default {
       type: String,
       required: true
     },
-    isAdmin: {
+    isadmin: {
       type: Boolean,
       default: true
     },
@@ -28,7 +28,7 @@ export default {
       type: String,
       required: true
     },
-    previewText: {
+    previewtext: {
       type: String,
       required: true
     },

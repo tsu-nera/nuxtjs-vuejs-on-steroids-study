@@ -4,27 +4,37 @@
       <h1>Get the latest tech news!</h1>
     </section>
     <section class="featured-posts">
-      <nuxt-link :to="'/posts/' + 1">
-        <article class="post-preview">
-          <div class="post-thumbnail" />
-          <div class="post-content">
-            <h1>Post Title</h1>
-            <p>Preview Text</p>
-          </div>
-        </article>
-      </nuxt-link>
-      <nuxt-link :to="'/posts/' + 2">
-        <article class="post-preview">
-          <div class="post-thumbnail" />
-          <div class="post-content">
-            <h1>Post Title</h1>
-            <p>Preview Text</p>
-          </div>
-        </article>
-      </nuxt-link>
+      <PostPreview
+        id="1"
+        thumbnail="https://picsum.photos/200/300"
+        title="Hello there 1!"
+        preview-text="This is my first post"
+      />
+      <PostPreview
+        id="1"
+        thumbnail="https://picsum.photos/200/300"
+        title="Hello there 2!"
+        preview-text="This is my second post"
+      />
+      <PostPreview
+        id="1"
+        thumbnail="https://picsum.photos/200/300"
+        title="Hello there 3!"
+        preview-text="This is my third post"
+      />
     </section>
   </div>
 </template>
+
+<script>
+import PostPreview from '@/components/Posts/PostPreview'
+
+export default {
+  components: {
+    PostPreview
+  }
+}
+</script>
 
 <style scope>
 intro {
@@ -64,41 +74,5 @@ intro {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-}
-
-.post-preview {
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 2px #ccc;
-  background-color: white;
-  width: 90%;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-@media (min-width: 850px) {
-  .post-preview {
-    width: 400px;
-    margin: 10px;
-  }
-}
-
-.post-thumbnail {
-  width: 100%;
-  height: 200px;
-  background-position: center;
-  background-size: cover;
-}
-
-.post-content {
-  padding: 10px;
-  text-align: center;
-}
-
-a:hover .post-content,
-a:active .post-content {
-  background-color: #ccc;
 }
 </style>

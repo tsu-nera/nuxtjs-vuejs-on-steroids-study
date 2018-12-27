@@ -14,25 +14,27 @@ export default {
   components: {
     PostList
   },
-  data() {
-    return {
-      loadedPosts: [
-        {
-          id: '1',
-          title: 'First Post',
-          previewText: 'This is our first post!',
-          thumbnail:
-            'https://www.articlesplanet.info/wp-content/uploads/2018/05/Tech-sector.jpg'
-        },
-        {
-          id: '2',
-          title: 'Second Post',
-          previewText: 'This is our second post!',
-          thumbnail:
-            'https://www.articlesplanet.info/wp-content/uploads/2018/05/Tech-sector.jpg'
-        }
-      ]
-    }
+  asyncData(content, callback) {
+    setTimeout(() => {
+      callback(null, {
+        loadedPosts: [
+          {
+            id: '1',
+            title: 'First Post',
+            previewText: 'This is our first post!',
+            thumbnail:
+              'https://www.articlesplanet.info/wp-content/uploads/2018/05/Tech-sector.jpg'
+          },
+          {
+            id: '2',
+            title: 'Second Post',
+            previewText: 'This is our second post!',
+            thumbnail:
+              'https://www.articlesplanet.info/wp-content/uploads/2018/05/Tech-sector.jpg'
+          }
+        ]
+      })
+    })
   }
 }
 </script>

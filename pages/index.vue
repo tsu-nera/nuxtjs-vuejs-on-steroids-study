@@ -6,38 +6,20 @@
     <post-list :posts="loadedPosts"/>
   </div>
 </template>
-
 <script>
-import PostList from '@/components/Posts/PostList'
-
+import PostList from '@/components/Posts/PostList.vue'
 export default {
   components: {
     PostList
   },
-  asyncData(content, callback) {
-    setTimeout(() => {
-      callback(null, {
-        loadedPosts: [
-          {
-            id: '1',
-            title: 'First Post',
-            previewText: 'This is our first post!',
-            thumbnail:
-              'https://www.articlesplanet.info/wp-content/uploads/2018/05/Tech-sector.jpg'
-          },
-          {
-            id: '2',
-            title: 'Second Post',
-            previewText: 'This is our second post!',
-            thumbnail:
-              'https://www.articlesplanet.info/wp-content/uploads/2018/05/Tech-sector.jpg'
-          }
-        ]
-      })
-    })
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts
+    }
   }
 }
 </script>
+
 
 <style scope>
 .intro {
